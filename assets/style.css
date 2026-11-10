@@ -220,7 +220,7 @@ nav .btn:hover {
 }
 
 #inicio {
-    min-height: min(88svh, 820px);
+    min-height: min(100svh, 820px);
     display: grid;
     align-items: center;
     padding: 9rem 0 5rem;
