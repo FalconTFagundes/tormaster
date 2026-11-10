@@ -123,22 +123,37 @@ header {
     height: 72px
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    flex: none
+/* Logomarca: dimensionada pela altura, sem depender da largura do contêiner */
+.bar {
+    gap: 1rem
 }
 
+.bar .logo {
+    flex: 0 1 auto;
+    min-width: 0
+}
+
+.logo-img,
 #logoTM {
     display: block;
+    height: clamp(30px, 4.2vw, 44px);
     width: auto;
-    height: 40px;
-    max-width: 38vw
+    max-width: min(62vw, 260px);
+    object-fit: contain
+}
+
+footer .logo-img {
+    height: clamp(34px, 3.6vw, 46px)
+}
+
+.placa .logo-placa {
+    height: clamp(36px, 4vw, 52px);
+    max-width: 100%
 }
 
 nav ul {
     display: flex;
-    gap: 2rem;
+    gap: clamp(1rem, 2vw, 2rem);
     list-style: none;
     margin: 0;
     padding: 0;
@@ -305,7 +320,7 @@ nav .btn:hover {
 }
 
 .tit h2 {
-    font-size: clamp(1.9rem, 3.6vw, 2.7rem);
+    font-size: clamp(1.8rem, 3.2vw, 2.5rem);
     font-weight: 700
 }
 
@@ -863,10 +878,6 @@ footer a:hover {
 }
 
 @media(max-width:1020px) {
-    #logoTM {
-        height: 34px
-    }
-
     .burger {
         display: block
     }
@@ -932,10 +943,6 @@ footer a:hover {
 
     .logo {
         min-height: 44px
-    }
-
-    #logoTM {
-        height: 28px
     }
 
     .placa {
@@ -1006,8 +1013,8 @@ footer a:hover {
     font-family: "Barlow Condensed", "Arial Narrow", Impact, sans-serif;
     text-transform: none;
     font-weight: 600;
-    font-size: clamp(2.1rem, 4.6vw, 3.2rem);
-    line-height: 1.05;
+    font-size: clamp(2rem, 4.4vw, 3.4rem);
+    line-height: 1.08;
     letter-spacing: -.01em
 }
 
@@ -1105,22 +1112,6 @@ footer a:hover {
     font-size: .98rem
 }
 
-.bloco-projeto {
-    margin-bottom: 4rem
-}
-
-.vitrine {
-    border: 1px solid #1f3a73;
-    background: #050f26;
-    overflow: hidden
-}
-
-.vitrine img {
-    display: block;
-    width: 100%;
-    height: auto
-}
-
 .pedido {
     display: grid;
     grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr);
@@ -1132,7 +1123,7 @@ footer a:hover {
 }
 
 .pedido h2 {
-    font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+    font-size: clamp(1.5rem, 2.8vw, 2rem);
     text-transform: none;
     font-weight: 600;
     letter-spacing: -.01em
@@ -1160,7 +1151,7 @@ footer a:hover {
     }
 
     .carimbo {
-        grid-template-columns: 1fr 1fr
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr)
     }
 
     .carimbo>div:nth-child(3) {
@@ -1173,6 +1164,44 @@ footer a:hover {
 
     .pedido .acoes {
         justify-content: flex-start
+    }
+}
+
+.pg-proj .folha-bloco+.folha-bloco {
+    margin-top: 3.5rem
+}
+
+.carimbo.c3 {
+    grid-template-columns: 1.6fr 1fr 1fr
+}
+
+@media(max-width:900px) {
+    .carimbo.c3 {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr)
+    }
+
+    .carimbo.c3>div:first-child {
+        grid-column: span 2
+    }
+
+    .carimbo.c3>div:nth-child(2) {
+        border-top: 1px solid rgba(255, 255, 255, .55);
+        border-left: 0
+    }
+
+    .carimbo.c3>div:nth-child(3) {
+        border-left: 1px solid rgba(255, 255, 255, .55)
+    }
+}
+
+@media(max-width:480px) {
+    .carimbo>div {
+        padding: .7rem .8rem .8rem
+    }
+
+    .carimbo dd {
+        font-size: 1.15rem;
+        overflow-wrap: anywhere
     }
 }
 

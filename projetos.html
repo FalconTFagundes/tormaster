@@ -7,6 +7,7 @@
     <title>Projetos | TORMASTER</title>
     <meta name="description"
         content="Projetos mecânicos da Tormaster desenvolvidos no Autodesk Inventor. Veja um exemplo de planta e solicite o seu projeto pelo WhatsApp.">
+    <meta name="robots" content="noimageindex">
     <meta name="theme-color" content="#0a1f44">
     <meta property="og:title" content="Projetos | TORMASTER">
     <meta property="og:type" content="website">
@@ -16,7 +17,7 @@
 <body class="pg-proj">
     <header>
         <div class="wrap bar"><a class="logo" href="index.html" aria-label="TORMASTER, início"><img
-                    src="assets/img/logo_tm.png" alt="TORMASTER" id="logoTM"></a> <button class="burger"
+                    src="assets/img/logo_tm.png" alt="TORMASTER" id="logoTM" class="logo-img" decoding="async"></a> <button class="burger"
                 aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span></button>
             <nav id="menu" aria-label="Principal">
                 <ul>
@@ -36,15 +37,14 @@
         <div class="wrap">
             <section class="abertura">
                 <h1>Do modelo 3D à planta técnica</h1>
-                <p>Desenvolvemos projetos mecânicos no Autodesk Inventor e fabricamos o que desenhamos. Esta é uma folha
-                    de exemplo.</p>
+                <p>Desenvolvemos projetos mecânicos no Autodesk Inventor e fabricamos o que desenhamos. A folha abaixo é apresentada como exemplo.</p>
             </section>
-            <section aria-label="Planta de exemplo">
+            <section class="folha-bloco" aria-label="Planta de exemplo">
                 <div class="folha">
                     <div class="folha-vista" id="plantaBox">
                         <img src="assets/projetos/trole-desenho.jpg"
-                            alt="Folha de desenho técnico de um troller para oxissolda, com medidas e lista de material ocultadas"
-                            width="3600" height="2545" draggable="false">
+                            alt="Folha de desenho técnico de um troller para oxissolda, com os dados reservados"
+                            width="1100" height="777" draggable="false">
                         <span class="escudo"></span>
                     </div>
                     <dl class="carimbo">
@@ -60,19 +60,26 @@
                 <p class="nota-folha">Medidas, pesos e lista de material ficam reservados, e o arquivo do projeto não
                     está disponível para visualização ou download.</p>
             </section>
-            <section class="bloco-projeto" aria-label="Projeto: carro esmerilhador">
-                <div class="tit">
-                    <h2>Carro esmerilhador</h2>
-                    <p>Modelagem 3D desenvolvida em projeto mecânico.</p>
+            <section class="folha-bloco" aria-label="Modelo 3D de exemplo">
+                <div class="folha">
+                    <div class="folha-vista">
+                        <img src="assets/projetos/carro-esmerilhador4.png"
+                            alt="Modelo 3D renderizado do carro esmerilhador: estrutura amarela com dois motores elétricos azuis sobre um trilho de aço"
+                            width="1600" height="1200" loading="lazy" decoding="async" draggable="false">
+                        <span class="escudo"></span>
+                    </div>
+                    <dl class="carimbo c3">
+                        <div><dt>Projeto</dt><dd>Carro esmerilhador</dd></div>
+                        <div><dt>Apresentação</dt><dd>Modelo 3D renderizado</dd></div>
+                        <div><dt>Acesso</dt><dd class="tranca"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1" /><path d="M8 11V8a4 4 0 0 1 8 0v3" /></svg>Restrito</dd></div>
+                    </dl>
                 </div>
-                <div class="vitrine"><img src="assets/projetos/carro-esmerilhador4.png"
-                        alt="Modelo 3D de carro esmerilhador" width="1600" height="1200" loading="lazy"
-                        decoding="async"></div>
+                <p class="nota-folha">Imagem renderizada a partir do modelo 3D. O arquivo do projeto não está disponível para visualização ou download.</p>
             </section>
             <section class="pedido">
                 <div>
-                    <h2>Tem um equipamento para projetar?</h2>
-                    <p>Conte o que precisa pelo WhatsApp e a nossa equipe responde com os próximos passos.</p>
+                    <h2>Solicite o seu projeto</h2>
+                    <p>Descreva a sua necessidade pelo WhatsApp. Nossa equipe retornará com as orientações para dar andamento ao projeto.</p>
                 </div>
                 <div class="acoes"><a class="btn azul"
                         href="https://wa.me/5533984391216?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20projeto%20mec%C3%A2nico."
@@ -84,7 +91,7 @@
     <footer>
         <div class="wrap">
             <div class="rod">
-                <div><a class="logo" href="index.html"><i></i>TORMASTER</a>
+                <div><a class="logo" href="index.html" aria-label="TORMASTER, início"><img src="assets/img/logo_tm.png" alt="TORMASTER" class="logo-img" loading="lazy" decoding="async"></a>
                     <p style="margin-top:1rem">Engenharia mecânica, usinagem, tornearia e solda em Governador Valadares,
                         MG.</p>
                 </div>
@@ -128,9 +135,8 @@
         // Ano no rodapé
         document.getElementById('ano').textContent = new Date().getFullYear();
 
-        // Proteção da planta: bloqueia menu de contexto, arrastar, seleção e atalhos de salvar/imprimir
-        const box = document.getElementById('plantaBox');
-        ['contextmenu', 'dragstart', 'selectstart', 'copy'].forEach(ev => box.addEventListener(ev, e => e.preventDefault()));
+        // Proteção das imagens do projeto: bloqueia menu de contexto, arrastar, seleção e atalhos de salvar/imprimir
+        document.querySelectorAll('.folha-vista').forEach(box => ['contextmenu', 'dragstart', 'selectstart', 'copy'].forEach(ev => box.addEventListener(ev, e => e.preventDefault())));
         document.addEventListener('keydown', e => {
             if ((e.ctrlKey || e.metaKey) && ['s', 'p', 'u'].includes(e.key.toLowerCase())) e.preventDefault();
         });
