@@ -963,52 +963,60 @@ footer a:hover {
     }
 }
 
-/* ===== Página de Projetos ===== */
-.pg-topo {
-    padding: 9rem 0 4rem;
+/* ===== Página de Projetos: folha de desenho ===== */
+.pg-proj {
     background-color: var(--azul-escuro);
-    background-image: linear-gradient(rgba(255, 255, 255, .035) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .035) 1px, transparent 1px);
-    background-size: 56px 56px;
-    border-bottom: 1px solid var(--linha)
+    background-image: linear-gradient(rgba(255, 255, 255, .03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .03) 1px, transparent 1px);
+    background-size: 56px 56px
 }
 
-.pg-topo h1 {
-    font-family: Barlow, "Segoe UI", Roboto, Arial, sans-serif;
+.pg-proj main {
+    padding: 8.5rem 0 5rem
+}
+
+.pg-proj section {
+    padding: 0
+}
+
+.abertura {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr);
+    gap: 3rem;
+    align-items: end;
+    margin-bottom: 3.5rem
+}
+
+.abertura h1 {
+    font-family: "Barlow Condensed", "Arial Narrow", Impact, sans-serif;
     text-transform: none;
-    font-size: clamp(2rem, 3.6vw, 2.9rem);
-    font-weight: 700;
-    line-height: 1.12;
-    letter-spacing: -.015em
+    font-weight: 600;
+    font-size: clamp(3rem, 8.5vw, 6.6rem);
+    line-height: .92;
+    letter-spacing: -.02em
 }
 
-.pg-topo p {
-    max-width: 60ch;
+.abertura p {
+    margin: 0;
     color: #d3dbea;
-    font-size: 1.1rem;
-    margin: 1.2rem 0 0
+    max-width: 38ch;
+    padding-bottom: .5rem
 }
 
-.crumb {
-    font-size: .92rem;
-    color: var(--suave);
-    margin: 0 0 1.2rem
-}
-
-.crumb a {
-    text-decoration: none
-}
-
-.crumb a:hover {
-    text-decoration: underline
-}
-
-#planta {
-    background: var(--azul-escuro)
-}
-
-.planta-box {
+.folha {
     position: relative;
-    border: 1px solid #1f3a73;
+    border: 2px solid #fff;
+    animation: assenta .9s .1s both
+}
+
+@keyframes assenta {
+    from {
+        opacity: 0;
+        transform: translateY(10px)
+    }
+}
+
+.folha-vista {
+    position: relative;
     background: #050f26;
     overflow: hidden;
     user-select: none;
@@ -1016,7 +1024,7 @@ footer a:hover {
     -webkit-touch-callout: none
 }
 
-.planta-box img {
+.folha-vista img {
     display: block;
     width: 100%;
     height: auto;
@@ -1024,41 +1032,49 @@ footer a:hover {
     -webkit-user-drag: none
 }
 
-.planta-box .escudo {
+.folha-vista .escudo {
     position: absolute;
-    inset: 0;
-    z-index: 2;
-    background: transparent
+    inset: 0
 }
 
-.planta-box .marca {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-    background: repeating-linear-gradient(-30deg, transparent 0 140px, rgba(255, 255, 255, .0) 140px 141px)
+.carimbo {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    border-top: 2px solid #fff;
+    margin: 0
 }
 
-.selo {
-    position: absolute;
-    z-index: 3;
-    top: .8rem;
-    left: .8rem;
+.carimbo>div {
+    padding: .8rem 1.1rem 1rem;
+    border-left: 1px solid rgba(255, 255, 255, .55)
+}
+
+.carimbo>div:first-child {
+    border-left: 0
+}
+
+.carimbo dt {
+    font-size: .82rem;
+    color: var(--suave);
+    margin: 0 0 .15rem
+}
+
+.carimbo dd {
+    margin: 0;
+    font: 600 1.35rem/1.15 "Barlow Condensed", "Arial Narrow", sans-serif;
+    letter-spacing: .01em
+}
+
+.carimbo .tranca {
     display: flex;
     align-items: center;
-    gap: .5rem;
-    padding: .45rem .75rem;
-    background: rgba(7, 26, 61, .92);
-    border: 1px solid #1f3a73;
-    font: 700 .85rem/1 "Barlow Condensed", "Arial Narrow", sans-serif;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    pointer-events: none
+    gap: .5rem
 }
 
-.selo svg {
-    width: 16px;
-    height: 16px;
+.carimbo .tranca svg {
+    width: 18px;
+    height: 18px;
+    flex: none;
     stroke: #6ea0ff;
     fill: none;
     stroke-width: 2;
@@ -1066,66 +1082,70 @@ footer a:hover {
     stroke-linejoin: round
 }
 
-.aviso {
-    display: grid;
-    grid-template-columns: 28px 1fr;
-    gap: 1rem;
-    margin-top: 1.4rem;
-    padding: 1.2rem 1.4rem;
-    border: 1px solid #1f3a73;
-    border-left: 4px solid #6ea0ff;
-    background: rgba(255, 255, 255, .03)
-}
-
-.aviso svg {
-    width: 26px;
-    height: 26px;
-    stroke: #6ea0ff;
-    fill: none;
-    stroke-width: 1.8;
-    stroke-linecap: round;
-    stroke-linejoin: round
-}
-
-.aviso b {
-    display: block;
-    font-weight: 600
-}
-
-.aviso span {
+.nota-folha {
+    max-width: 62ch;
+    margin: 1.4rem 0 0;
     color: var(--suave);
     font-size: .98rem
 }
 
-.proj-info {
+.pedido {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, .8fr);
-    gap: 4rem;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr);
+    gap: 3rem;
     align-items: center;
-    margin-top: 5rem
+    margin-top: 5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid rgba(255, 255, 255, .25)
 }
 
-.proj-info p {
+.pedido h2 {
+    font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+    text-transform: none;
+    font-weight: 600;
+    letter-spacing: -.01em
+}
+
+.pedido p {
+    margin: .8rem 0 0;
     color: #d3dbea;
-    max-width: 54ch;
-    margin: 0 0 1.8rem;
-    font-size: 1.1rem
+    max-width: 52ch
+}
+
+.pedido .acoes {
+    justify-content: flex-end
 }
 
 @media(max-width:900px) {
-    .pg-topo {
-        padding: 7rem 0 3rem
+    .pg-proj main {
+        padding-top: 7rem
     }
 
-    .proj-info {
+    .abertura,
+    .pedido {
         grid-template-columns: minmax(0, 1fr);
-        gap: 2.5rem;
-        margin-top: 3.5rem
+        gap: 1.6rem
+    }
+
+    .carimbo {
+        grid-template-columns: 1fr 1fr
+    }
+
+    .carimbo>div:nth-child(3) {
+        border-left: 0
+    }
+
+    .carimbo>div:nth-child(n+3) {
+        border-top: 1px solid rgba(255, 255, 255, .55)
+    }
+
+    .pedido .acoes {
+        justify-content: flex-start
     }
 }
 
 @media print {
-    .planta-box {
+    .folha-vista {
         display: none !important
     }
 }
