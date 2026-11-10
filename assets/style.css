@@ -123,9 +123,17 @@ header {
     height: 72px
 }
 
-#logoTM{
-    width: 50%;
-    height: auto;
+.logo {
+    display: flex;
+    align-items: center;
+    flex: none
+}
+
+#logoTM {
+    display: block;
+    width: auto;
+    height: 40px;
+    max-width: 38vw
 }
 
 nav ul {
@@ -297,7 +305,7 @@ nav .btn:hover {
 }
 
 .tit h2 {
-    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-size: clamp(1.9rem, 3.6vw, 2.7rem);
     font-weight: 700
 }
 
@@ -855,6 +863,10 @@ footer a:hover {
 }
 
 @media(max-width:1020px) {
+    #logoTM {
+        height: 34px
+    }
+
     .burger {
         display: block
     }
@@ -920,6 +932,10 @@ footer a:hover {
 
     .logo {
         min-height: 44px
+    }
+
+    #logoTM {
+        height: 28px
     }
 
     .placa {
@@ -990,9 +1006,9 @@ footer a:hover {
     font-family: "Barlow Condensed", "Arial Narrow", Impact, sans-serif;
     text-transform: none;
     font-weight: 600;
-    font-size: clamp(3rem, 8.5vw, 6.6rem);
-    line-height: .92;
-    letter-spacing: -.02em
+    font-size: clamp(2.1rem, 4.6vw, 3.2rem);
+    line-height: 1.05;
+    letter-spacing: -.01em
 }
 
 .abertura p {
@@ -1087,6 +1103,22 @@ footer a:hover {
     margin: 1.4rem 0 0;
     color: var(--suave);
     font-size: .98rem
+}
+
+.bloco-projeto {
+    margin-bottom: 4rem
+}
+
+.vitrine {
+    border: 1px solid #1f3a73;
+    background: #050f26;
+    overflow: hidden
+}
+
+.vitrine img {
+    display: block;
+    width: 100%;
+    height: auto
 }
 
 .pedido {
