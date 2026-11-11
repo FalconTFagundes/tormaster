@@ -408,7 +408,9 @@ nav .btn:hover {
 .card svg {
     width: 48px;
     height: 48px;
-    stroke: var(--branco);
+    color: var(--branco);
+    stroke: currentColor;
+    transition: color .3s, filter .3s;
     fill: none;
     stroke-width: 1.6;
     stroke-linecap: round;
@@ -426,6 +428,142 @@ nav .btn:hover {
     margin: 0;
     color: var(--suave);
     font-size: 1rem
+}
+
+/* Serviços: ícones animados. Mexem sozinhos; no hover o cartão "acende" */
+@keyframes giro {
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes rola {
+    to {
+        transform: translateY(4.67px)
+    }
+}
+
+@keyframes avanca {
+    from {
+        transform: translateX(-12px)
+    }
+
+    to {
+        transform: translateX(4px)
+    }
+}
+
+@keyframes faisca {
+    0% {
+        opacity: 1;
+        transform: translateY(0)
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-7px)
+    }
+}
+
+@keyframes pulsa {
+    from {
+        opacity: .6;
+        transform: scale(.65)
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.3)
+    }
+}
+
+@keyframes traco {
+    0% {
+        stroke-dashoffset: 1;
+        opacity: 0
+    }
+
+    4% {
+        opacity: 1
+    }
+
+    35%,
+    80% {
+        stroke-dashoffset: 0;
+        opacity: 1
+    }
+
+    96% {
+        opacity: 1
+    }
+
+    100% {
+        stroke-dashoffset: -1;
+        opacity: 0
+    }
+}
+
+.ico-fresa .fresa {
+    transform-origin: 24px 24px;
+    animation: giro 12s linear infinite
+}
+
+.ico-torno .rolo {
+    animation: rola 1.1s linear infinite
+}
+
+.ico-torno .bit {
+    animation: avanca 5s ease-in-out infinite alternate
+}
+
+.ico-solda .sp {
+    animation: faisca 1.3s ease-out infinite;
+    animation-delay: var(--d)
+}
+
+.ico-solda .arco {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: pulsa .5s ease-in-out infinite alternate
+}
+
+.ico-eng .a {
+    transform-origin: 18.1px 19.2px;
+    animation: giro 18s linear infinite
+}
+
+.ico-eng .b {
+    transform-origin: 31.9px 30.8px;
+    animation: giro 14.4s linear infinite reverse
+}
+
+.ico-proj .tr {
+    stroke-dasharray: 1;
+    stroke-linecap: butt;
+    animation: traco 7s ease-in-out infinite
+}
+
+.ico-proj .t2 {
+    animation-delay: .5s
+}
+
+.ico-proj .t3 {
+    animation-delay: 1s
+}
+
+.grade .card {
+    transition: opacity .7s, transform .4s, border-color .3s, background .3s, box-shadow .3s
+}
+
+.grade .card.on:hover {
+    transform: translateY(-4px);
+    background: #19212d;
+    box-shadow: 0 0 0 1px rgba(110, 160, 255, .35), 0 14px 34px rgba(18, 59, 138, .35)
+}
+
+.card:hover svg {
+    color: #6ea0ff;
+    filter: drop-shadow(0 0 6px rgba(110, 160, 255, .75))
 }
 
 #projetos {
