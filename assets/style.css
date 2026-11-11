@@ -116,6 +116,10 @@ header {
     border-bottom: 1px solid var(--linha)
 }
 
+#pedidoBox{
+    margin-top: 4%;
+}
+
 .bar {
     display: flex;
     align-items: center;
@@ -860,6 +864,8 @@ footer a:hover {
     opacity: 1;
     transform: none
 }
+
+
 
 @media(max-width:960px) {
     .grade {
