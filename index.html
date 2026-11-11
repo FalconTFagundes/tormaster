@@ -13,182 +13,9 @@
         content="Soluções em usinagem, tornearia e solda com compromisso, qualidade e precisão.">
     <meta property="og:type" content="website">
     <link rel="stylesheet" href="assets/style.css">
-    <link rel="icon" href="favicon.ico" sizes="any">
-    <style>
-        /* ===== Galeria: mosaico em linhas + visualizador ===== */
-        #galeria {
-            overflow: hidden
-        }
-
-        .mosaico {
-            --h: clamp(110px, 17vw, 270px);
-            --gap: 6px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: var(--gap);
-            padding-inline: clamp(8px, 2vw, 24px);
-            margin-top: clamp(1.5rem, 3vw, 2.5rem);
-        }
-
-        .mosaico::after {
-            content: "";
-            flex-grow: 1000000
-        }
-
-        .mosaico .foto {
-            flex-grow: calc(var(--r) * 100);
-            flex-shrink: 1;
-            flex-basis: calc(var(--r) * var(--h));
-            min-width: 0;
-            display: block;
-            margin: 0;
-            padding: 0;
-            border: 0;
-            border-radius: 2px;
-            background: rgba(128, 128, 128, .18);
-            line-height: 0;
-            overflow: hidden;
-            cursor: zoom-in;
-        }
-
-        .mosaico .foto[hidden] {
-            display: none
-        }
-
-        .mosaico .foto img {
-            display: block;
-            width: 100%;
-            height: auto
-        }
-
-        .mosaico .foto:focus-visible {
-            outline: 3px solid currentColor;
-            outline-offset: 3px
-        }
-
-        .gal-mais {
-            display: flex;
-            justify-content: center;
-            margin-top: clamp(1.25rem, 2.5vw, 2rem)
-        }
-
-        .gal-mais button {
-            font: inherit;
-            font-weight: 600;
-            color: inherit;
-            background: transparent;
-            border: 1.5px solid currentColor;
-            border-radius: 2px;
-            padding: .85rem 1.6rem;
-            cursor: pointer;
-        }
-
-        .gal-mais button:hover {
-            background: rgba(128, 128, 128, .16)
-        }
-
-        .gal-mais button:focus-visible {
-            outline: 3px solid currentColor;
-            outline-offset: 3px
-        }
-
-        #visor {
-            position: fixed;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            max-width: none;
-            max-height: none;
-            margin: 0;
-            padding: 0;
-            border: 0;
-            background: #06101f;
-            color: #fff;
-        }
-
-        #visor[open] {
-            display: grid;
-            grid-template-rows: minmax(0, 1fr) auto
-        }
-
-        #visor::backdrop {
-            background: #06101f
-        }
-
-        #visor .palco {
-            display: grid;
-            place-items: center;
-            min-height: 0;
-            padding: clamp(8px, 2vw, 28px) clamp(8px, 2vw, 28px) 0;
-            touch-action: pan-y;
-        }
-
-        #visor .palco img {
-            display: block;
-            max-width: 100%;
-            max-height: 100%;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-            user-select: none;
-            -webkit-user-drag: none;
-        }
-
-        #visor .barra {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-            padding: .75rem clamp(8px, 2vw, 28px) calc(.75rem + env(safe-area-inset-bottom, 0px));
-        }
-
-        #visor .contagem {
-            font-variant-numeric: tabular-nums;
-            font-size: .95rem;
-            opacity: .85
-        }
-
-        #visor .controles {
-            display: flex;
-            gap: .25rem
-        }
-
-        #visor .controles button {
-            display: grid;
-            place-items: center;
-            width: 44px;
-            height: 44px;
-            padding: 0;
-            background: transparent;
-            color: #fff;
-            border: 1px solid rgba(255, 255, 255, .28);
-            border-radius: 2px;
-            cursor: pointer;
-        }
-
-        #visor .controles button:hover {
-            background: rgba(255, 255, 255, .12)
-        }
-
-        #visor .controles button:focus-visible {
-            outline: 2px solid #fff;
-            outline-offset: 2px
-        }
-
-        #visor .controles svg {
-            width: 20px;
-            height: 20px;
-            fill: none;
-            stroke: currentColor;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round
-        }
-
-        #visor .controles .sep {
-            width: .75rem
-        }
-    </style>
+    <link rel="icon" href="favicon.ico?v=3" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
 
 </head>
 
@@ -357,15 +184,6 @@
                 </div>
             </div>
         </section>
-        <section id="galeria">
-            <div class="wrap">
-                <div class="tit rev">
-                    <h2>Galeria</h2>
-                </div>
-            </div>
-            <div class="mosaico" id="mosaico" aria-label="Fotos de trabalhos realizados pela Tormaster"></div>
-            <div class="gal-mais"><button type="button" id="galMais" hidden><span></span></button></div>
-        </section>
         <section id="contato">
             <div class="wrap">
                 <div class="tit rev">
@@ -408,6 +226,15 @@
                             src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d16994.190534104488!2d-41.9097224!3d-18.8210115!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xb1a7610f956ddf%3A0x2f1e0fac061ed1b2!2sTormaster!5e1!3m2!1spt-BR!2sbr!4v1794309449249!5m2!1spt-BR!2sbr"></iframe>
                     </div>
                 </div>
+            </div>
+        </section>
+        <section id="galeria">
+            <div class="wrap">
+                <div class="tit rev">
+                    <h2>Galeria</h2>
+                </div>
+                <div class="mosaico" id="mosaico" aria-label="Fotos de trabalhos realizados pela Tormaster"></div>
+                <div class="gal-mais"><button type="button" class="btn vazio" id="galMais" hidden><span></span></button></div>
             </div>
         </section>
     </main>
@@ -570,22 +397,36 @@
             visor.querySelectorAll('[data-ir]').forEach((b) =>
                 b.addEventListener('click', () => mostrar(atual + Number(b.dataset.ir))));
             visor.querySelector('[data-fechar]').addEventListener('click', () => visor.close());
-            visor.querySelector('.palco').addEventListener('click', (e) => { if (e.target !== visorImg) visor.close(); });
             visor.addEventListener('keydown', (e) => {
                 if (e.key === 'ArrowRight') mostrar(atual + 1);
                 if (e.key === 'ArrowLeft') mostrar(atual - 1);
             });
 
-            let x0 = null;
+            // fecha ao clicar fora da foto (a foto ocupa a área toda, então calculo onde ela realmente aparece)
+            const dentroDaFoto = (e) => {
+                const r = visorImg.getBoundingClientRect();
+                const nw = visorImg.naturalWidth, nh = visorImg.naturalHeight;
+                if (!nw || !nh) return true;
+                const s = Math.min(r.width / nw, r.height / nh);
+                const w = nw * s, hh = nh * s;
+                const x = r.left + (r.width - w) / 2, y = r.top + (r.height - hh) / 2;
+                return e.clientX >= x && e.clientX <= x + w && e.clientY >= y && e.clientY <= y + hh;
+            };
+
+            let x0 = null, arrastou = false;
             const palco = visor.querySelector('.palco');
-            palco.addEventListener('pointerdown', (e) => { x0 = e.clientX; });
+            palco.addEventListener('pointerdown', (e) => { x0 = e.clientX; arrastou = false; });
             palco.addEventListener('pointerup', (e) => {
                 if (x0 === null) return;
                 const dx = e.clientX - x0;
                 x0 = null;
-                if (Math.abs(dx) > 50) mostrar(atual + (dx < 0 ? 1 : -1));
+                if (Math.abs(dx) > 50) { arrastou = true; mostrar(atual + (dx < 0 ? 1 : -1)); }
             });
             palco.addEventListener('pointercancel', () => { x0 = null; });
+            visor.addEventListener('click', (e) => {
+                if (arrastou || e.target.closest('.barra')) return;
+                if (!dentroDaFoto(e)) visor.close();
+            });
 
             montar();
 

@@ -630,51 +630,142 @@ nav .btn:hover {
     border-block: 1px solid var(--linha)
 }
 
-.gal {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    grid-auto-rows: clamp(190px, 21vw, 290px)
+/* Galeria: mosaico em linhas (cada foto na sua proporção) */
+.mosaico {
+    --h: clamp(110px, 16vw, 240px);
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem
 }
 
-.gal button {
+.mosaico::after {
+    content: "";
+    flex-grow: 1000000
+}
+
+.mosaico .foto {
+    flex-grow: calc(var(--r) * 100);
+    flex-basis: calc(var(--r) * var(--h));
+    min-width: 0;
+    display: block;
+    margin: 0;
     padding: 0;
     border: 1px solid var(--linha);
+    border-radius: 2px;
     background: var(--azul-escuro);
-    cursor: pointer;
+    line-height: 0;
     overflow: hidden;
+    cursor: zoom-in
+}
+
+.mosaico .foto[hidden],
+.gal-mais [hidden] {
+    display: none
+}
+
+.mosaico .foto img {
+    display: block;
+    width: 100%;
+    height: auto
+}
+
+.gal-mais {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem
+}
+
+/* Visualizador de fotos */
+#visor {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    background: #05080e
+}
+
+#visor[open] {
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto
+}
+
+#visor::backdrop {
+    background: #05080e
+}
+
+#visor .palco {
     position: relative;
-    border-radius: 2px
+    min-height: 0;
+    margin: clamp(.5rem, 2vw, 1.75rem) clamp(.5rem, 2vw, 1.75rem) 0;
+    touch-action: pan-y
 }
 
-.gal button:first-child,
-.gal button:nth-child(6) {
-    grid-column: span 2
-}
-
-.gal img {
+/* a foto preenche a área e se ajusta por inteiro (object-fit), qualquer que seja o tamanho do arquivo */
+#visor .palco img {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform .4s
+    max-width: none;
+    max-height: none;
+    object-fit: contain;
+    background: none;
+    user-select: none;
+    -webkit-user-drag: none
 }
 
-.gal button:hover img {
-    transform: scale(1.05)
+#visor .barra {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: .75rem clamp(.5rem, 2vw, 1.75rem) calc(.75rem + env(safe-area-inset-bottom, 0px))
 }
 
-.gal figcaption {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: .7rem 1rem;
-    background: linear-gradient(transparent, rgba(7, 26, 61, .95));
-    text-align: left;
-    font-size: .95rem
+#visor .contagem {
+    color: var(--suave);
+    font-size: .95rem;
+    font-variant-numeric: tabular-nums
+}
+
+#visor .controles {
+    display: flex;
+    gap: .25rem
+}
+
+#visor .controles button {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    background: 0 0;
+    color: var(--branco);
+    border: 1px solid var(--linha);
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background .2s
+}
+
+#visor .controles button:hover {
+    background: var(--chumbo2)
+}
+
+#visor .controles svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round
+}
+
+#visor .controles .sep {
+    width: .75rem
 }
 
 dialog {
@@ -958,16 +1049,6 @@ footer a:hover {
 
     .placa b {
         font-size: 2rem
-    }
-
-    .gal {
-        grid-template-columns: 1fr 1fr;
-        grid-auto-rows: clamp(130px, 36vw, 200px)
-    }
-
-    .gal button:first-child,
-    .gal button:nth-child(6) {
-        grid-column: span 2
     }
 
     .btn {
