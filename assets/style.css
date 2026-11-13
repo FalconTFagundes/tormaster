@@ -222,6 +222,10 @@ nav a:hover {
     color: var(--branco)
 }
 
+.nav-cta {
+    display: none
+}
+
 .burger {
     display: none;
     background: 0 0;
@@ -321,6 +325,16 @@ nav a:hover {
     font-size: .95rem
 }
 
+.hero-art {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem
+}
+
+.hero-fale {
+    align-self: center
+}
+
 .desenho {
     width: 100%;
     height: auto;
@@ -390,7 +404,7 @@ nav a:hover {
         display: inline
     }
 
-    .hero-cta .btn {
+    .hero-fale {
         width: 100%;
         justify-content: center
     }
@@ -1328,6 +1342,10 @@ footer a:hover {
         display: block
     }
 
+    .btn-cta {
+        display: none
+    }
+
     nav {
         position: absolute;
         top: 100%;
@@ -1353,6 +1371,18 @@ footer a:hover {
         display: block;
         padding: .9rem 0;
         border-bottom: 1px solid var(--linha)
+    }
+
+    .nav-cta {
+        display: block;
+        margin-top: 1rem
+    }
+
+    .nav-cta a {
+        display: flex;
+        justify-content: center;
+        padding: .85rem 0;
+        border: 0
     }
 
     .btn-cta {
