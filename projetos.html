@@ -6,11 +6,15 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
     <title>Projetos | TORMASTER</title>
     <meta name="description"
-        content="Projetos mecânicos da Tormaster desenvolvidos no Autodesk Inventor. Veja um exemplo de planta e solicite o seu projeto pelo WhatsApp.">
+        content="Projetos mecânicos da Tormaster desenvolvidos no Autodesk Inventor, do modelo 3D à planta técnica e à fabricação. Veja exemplos e solicite o seu projeto pelo WhatsApp.">
     <meta name="robots" content="noimageindex">
     <meta name="theme-color" content="#0a1f44">
     <meta property="og:title" content="Projetos | TORMASTER">
+    <meta property="og:description" content="Do modelo 3D à planta técnica: projetos mecânicos desenvolvidos e fabricados pela Tormaster em Governador Valadares, MG.">
     <meta property="og:type" content="website">
+    <link rel="icon" href="favicon.ico?v=3" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
     <link rel="stylesheet" href="assets/style.css">
 </head>
 
@@ -36,48 +40,88 @@
     <main>
         <div class="wrap">
             <section class="abertura">
-                <h1>Do modelo 3D à planta técnica</h1>
-                <p>Desenvolvemos projetos mecânicos no Autodesk Inventor e fabricamos o que desenhamos. A folha abaixo é apresentada como exemplo.</p>
-            </section>
-            <section class="folha-bloco" aria-label="Planta de exemplo">
-                <div class="folha">
-                    <div class="folha-vista" id="plantaBox">
-                        <img src="assets/projetos/trole-desenho.jpg"
-                            alt="Folha de desenho técnico de um troller para oxissolda, com os dados reservados"
-                            width="1100" height="777" draggable="false">
-                        <span class="escudo"></span>
-                    </div>
-                    <dl class="carimbo">
-                        <div><dt>Projeto</dt><dd>Troller para oxissolda</dd></div>
-                        <div><dt>Feito em</dt><dd>Autodesk Inventor</dd></div>
-                        <div><dt>A folha reúne</dt><dd>Vistas, cotas e lista de material</dd></div>
-                        <div><dt>Acesso</dt><dd class="tranca"><svg viewBox="0 0 24 24" aria-hidden="true">
-                                    <rect x="5" y="11" width="14" height="9" rx="1" />
-                                    <path d="M8 11V8a4 4 0 0 1 8 0v3" />
-                                </svg>Restrito</dd></div>
-                    </dl>
+                <div>
+                    <h1>Do modelo 3D à planta técnica</h1>
+                    <p>Projetamos no Autodesk Inventor e fabricamos o que desenhamos.</p>
                 </div>
-    
+                <ol class="etapas" aria-label="Etapas do projeto">
+                    <li><span>01</span>Modelo 3D</li>
+                    <li><span>02</span>Planta técnica</li>
+                    <li><span>03</span>Fabricação</li>
+                </ol>
             </section>
-            <section class="folha-bloco" aria-label="Modelo 3D de exemplo">
-                <div class="folha">
-                    <div class="folha-vista">
-                        <img src="assets/projetos/carro-esmerilhador4.png"
-                            alt="Modelo 3D renderizado do carro esmerilhador: estrutura amarela com dois motores elétricos azuis sobre um trilho de aço"
-                            width="1600" height="1200" loading="lazy" decoding="async" draggable="false">
-                        <span class="escudo"></span>
-                    </div>
-                    <dl class="carimbo c3">
-                        <div><dt>Projeto</dt><dd>Carro esmerilhador</dd></div>
-                        <div><dt>Apresentação</dt><dd>Modelo 3D renderizado</dd></div>
-                        <div><dt>Acesso</dt><dd class="tranca"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1" /><path d="M8 11V8a4 4 0 0 1 8 0v3" /></svg>Restrito</dd></div>
-                    </dl>
+
+            <section class="vitrine" aria-label="Projetos desenvolvidos">
+            <article class="pj larga" style="--i:0">
+                <div class="vista">
+                    <img src="assets/projetos/trole-desenho.jpg"
+                        alt="Folha de desenho técnico de um troller para oxissolda, com os dados reservados" width="1100" height="777" decoding="async" draggable="false"
+                        onload="this.parentNode.classList.remove('vazia')" onerror="this.remove()">
+                    <span class="n">01</span>
+                    <span class="tipo">Planta técnica</span>
+                    <span class="escudo"></span>
                 </div>
-                </section>
+                <div class="pj-info">
+                    <h2>Troller para oxissolda</h2>
+                    <p class="meta">Autodesk Inventor<span class="tranca"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1" /><path d="M8 11V8a4 4 0 0 1 8 0v3" /></svg>Restrito</span></p>
+                    <a class="cta" href="https://wa.me/5533984391216?text=Ol%C3%A1%21%20Vi%20o%20projeto%20%22Troller%20para%20oxissolda%22%20no%20site%20da%20Tormaster%20e%20gostaria%20de%20um%20projeto%20parecido." target="_blank" rel="noopener">Quero um projeto assim<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+                </div>
+            </article>
+            <article class="pj estreita" style="--i:1">
+                <div class="vista">
+                    <img src="assets/projetos/carro-esmerilhador4.png"
+                        alt="Modelo 3D renderizado do carro esmerilhador: estrutura amarela com dois motores elétricos azuis sobre um trilho de aço" width="1600" height="1200" loading="lazy" decoding="async" draggable="false"
+                        onload="this.parentNode.classList.remove('vazia')" onerror="this.remove()">
+                    <span class="n">02</span>
+                    <span class="tipo">Modelo 3D</span>
+                    <span class="escudo"></span>
+                </div>
+                <div class="pj-info">
+                    <h2>Carro esmerilhador</h2>
+                    <p class="meta">Autodesk Inventor<span class="tranca"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1" /><path d="M8 11V8a4 4 0 0 1 8 0v3" /></svg>Restrito</span></p>
+                    <a class="cta" href="https://wa.me/5533984391216?text=Ol%C3%A1%21%20Vi%20o%20projeto%20%22Carro%20esmerilhador%22%20no%20site%20da%20Tormaster%20e%20gostaria%20de%20um%20projeto%20parecido." target="_blank" rel="noopener">Quero um projeto assim<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+                </div>
+            </article>
+            <!-- NOVO: troque a imagem, o alt, o título e o tipo deste card (arquivo: assets/projetos/projeto-03.jpg) -->
+            <article class="pj estreita" style="--i:2">
+                <div class="vista vazia">
+                        <span class="ph"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5l16 9v18l-16 9-16-9V14z" /><path d="M8 14l16 9 16-9M24 23v18" /></svg><em>Imagem do projeto</em></span>
+                    <img src="assets/projetos/projeto-03.jpg"
+                        alt="Descreva aqui a imagem do projeto 03" loading="lazy" decoding="async" draggable="false"
+                        onload="this.parentNode.classList.remove('vazia')" onerror="this.remove()">
+                    <span class="n">03</span>
+                    <span class="tipo">Modelo 3D</span>
+                    <span class="escudo"></span>
+                </div>
+                <div class="pj-info">
+                    <h2>Nome do projeto</h2>
+                    <p class="meta">Autodesk Inventor<span class="tranca"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1" /><path d="M8 11V8a4 4 0 0 1 8 0v3" /></svg>Restrito</span></p>
+                    <a class="cta" href="https://wa.me/5533984391216?text=Ol%C3%A1%21%20Vi%20o%20projeto%20%22Nome%20do%20projeto%22%20no%20site%20da%20Tormaster%20e%20gostaria%20de%20um%20projeto%20parecido." target="_blank" rel="noopener">Quero um projeto assim<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+                </div>
+            </article>
+            <!-- NOVO: troque a imagem, o alt, o título e o tipo deste card (arquivo: assets/projetos/projeto-04.jpg) -->
+            <article class="pj larga" style="--i:3">
+                <div class="vista vazia">
+                        <span class="ph"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5l16 9v18l-16 9-16-9V14z" /><path d="M8 14l16 9 16-9M24 23v18" /></svg><em>Imagem do projeto</em></span>
+                    <img src="assets/projetos/projeto-04.jpg"
+                        alt="Descreva aqui a imagem do projeto 04" loading="lazy" decoding="async" draggable="false"
+                        onload="this.parentNode.classList.remove('vazia')" onerror="this.remove()">
+                    <span class="n">04</span>
+                    <span class="tipo">Planta técnica</span>
+                    <span class="escudo"></span>
+                </div>
+                <div class="pj-info">
+                    <h2>Nome do projeto</h2>
+                    <p class="meta">Autodesk Inventor<span class="tranca"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1" /><path d="M8 11V8a4 4 0 0 1 8 0v3" /></svg>Restrito</span></p>
+                    <a class="cta" href="https://wa.me/5533984391216?text=Ol%C3%A1%21%20Vi%20o%20projeto%20%22Nome%20do%20projeto%22%20no%20site%20da%20Tormaster%20e%20gostaria%20de%20um%20projeto%20parecido." target="_blank" rel="noopener">Quero um projeto assim<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+                </div>
+            </article>
+            </section>
+
             <section class="pedido">
-                <div id="pedidoBox">
-                    <h2>Solicite o seu projeto</h2>
-                    <p>Descreva a sua necessidade pelo WhatsApp. Nossa equipe retornará com as orientações para dar andamento ao projeto.</p>
+                <div>
+                    <h2>Precisa de um projeto mecânico?</h2>
+                    <p>Conte a sua necessidade pelo WhatsApp. Nossa equipe retorna com as orientações para dar andamento.</p>
                 </div>
                 <div class="acoes"><a class="btn azul"
                         href="https://wa.me/5533984391216?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20projeto%20mec%C3%A2nico."
@@ -134,7 +178,7 @@
         document.getElementById('ano').textContent = new Date().getFullYear();
 
         // Proteção das imagens do projeto: bloqueia menu de contexto, arrastar, seleção e atalhos de salvar/imprimir
-        document.querySelectorAll('.folha-vista').forEach(box => ['contextmenu', 'dragstart', 'selectstart', 'copy'].forEach(ev => box.addEventListener(ev, e => e.preventDefault())));
+        document.querySelectorAll('.vista').forEach(box => ['contextmenu', 'dragstart', 'selectstart', 'copy'].forEach(ev => box.addEventListener(ev, e => e.preventDefault())));
         document.addEventListener('keydown', e => {
             if ((e.ctrlKey || e.metaKey) && ['s', 'p', 'u'].includes(e.key.toLowerCase())) e.preventDefault();
         });

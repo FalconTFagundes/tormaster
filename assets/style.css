@@ -116,10 +116,6 @@ header {
     border-bottom: 1px solid var(--linha)
 }
 
-#pedidoBox{
-    margin-top: 4%;
-}
-
 
 .bar {
     display: flex;
@@ -1212,7 +1208,7 @@ footer a:hover {
     }
 }
 
-/* ===== Página de Projetos: folha de desenho ===== */
+/* ===== Página de Projetos: vitrine ===== */
 .pg-proj {
     background-color: var(--azul-escuro);
     background-image: linear-gradient(rgba(255, 255, 255, .03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .03) 1px, transparent 1px);
@@ -1227,16 +1223,23 @@ footer a:hover {
     padding: 0
 }
 
+@keyframes assenta {
+    from {
+        opacity: 0;
+        transform: translateY(12px)
+    }
+}
+
+/* Abertura: título + etapas */
 .abertura {
     display: grid;
-    grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 3rem;
     align-items: end;
-    margin-bottom: 3.5rem
+    margin-bottom: 3rem
 }
 
 .abertura h1 {
-    font-family: "Barlow Condensed", "Arial Narrow", Impact, sans-serif;
     text-transform: none;
     font-weight: 600;
     font-size: clamp(2rem, 4.4vw, 3.4rem);
@@ -1245,118 +1248,295 @@ footer a:hover {
 }
 
 .abertura p {
-    margin: 0;
+    margin: 1rem 0 0;
     color: #d3dbea;
-    max-width: 38ch;
-    padding-bottom: .5rem
+    max-width: 40ch
 }
 
-.folha {
+.etapas {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr))
+}
+
+.etapas li {
     position: relative;
-    border: 2px solid #fff;
-    animation: assenta .9s .1s both
+    padding: 1.1rem 1rem 0 0;
+    border-top: 2px solid rgba(255, 255, 255, .28);
+    font: 600 1.15rem/1.1 "Barlow Condensed", "Arial Narrow", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    white-space: nowrap
 }
 
-@keyframes assenta {
-    from {
-        opacity: 0;
-        transform: translateY(10px)
-    }
+.etapas li::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    background: var(--azul-escuro);
+    border: 2px solid #6ea0ff
 }
 
-.folha-vista {
+.etapas li span {
+    display: block;
+    margin-bottom: .3rem;
+    font-size: .85rem;
+    letter-spacing: .14em;
+    color: #6ea0ff
+}
+
+/* Vitrine: grade assimétrica (7/5 e 5/7) */
+.vitrine {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 1.25rem
+}
+
+.pj {
+    grid-column: span 6;
+    display: flex;
+    flex-direction: column;
+    background: rgba(5, 15, 38, .6);
+    border: 1px solid rgba(255, 255, 255, .22);
+    transition: border-color .3s, box-shadow .3s;
+    animation: assenta .8s both;
+    animation-delay: calc(var(--i, 0) * .12s + .1s)
+}
+
+.pj.larga {
+    grid-column: span 7
+}
+
+.pj.estreita {
+    grid-column: span 5
+}
+
+.pj:hover {
+    border-color: #6ea0ff;
+    box-shadow: 0 0 0 1px rgba(110, 160, 255, .3), 0 16px 40px rgba(2, 10, 30, .5)
+}
+
+/* Área da imagem (protegida): a foto/planta aparece inteira, sem cortes */
+.vista {
     position: relative;
-    background: #050f26;
+    height: clamp(250px, 31vw, 410px);
+    background-color: #050f26;
+    background-image: linear-gradient(rgba(255, 255, 255, .035) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .035) 1px, transparent 1px);
+    background-size: 24px 24px;
     overflow: hidden;
     user-select: none;
     -webkit-user-select: none;
     -webkit-touch-callout: none
 }
 
-.folha-vista img {
-    display: block;
-    width: 100%;
-    height: auto;
-    pointer-events: none;
-    -webkit-user-drag: none
-}
-
-.folha-vista .escudo {
+.vista img {
     position: absolute;
-    inset: 0
+    inset: 0;
+    inset: 2.7rem 0 0;
+    width: 100%;
+    height: calc(100% - 2.7rem);
+    padding: clamp(.8rem, 2vw, 1.4rem);
+    object-fit: contain;
+    pointer-events: none;
+    -webkit-user-drag: none;
+    transition: transform .6s
 }
 
-.carimbo {
-    display: grid;
-    grid-template-columns: 1.6fr 1fr 1fr 1fr;
-    border-top: 2px solid #fff;
-    margin: 0
+.pj:hover .vista img {
+    transform: scale(1.03)
 }
 
-.carimbo>div {
-    padding: .8rem 1.1rem 1rem;
-    border-left: 1px solid rgba(255, 255, 255, .55)
+/* marcas de canto, como numa folha de desenho */
+.vista::before {
+    --c: rgba(110, 160, 255, .75);
+    --l: 16px;
+    content: "";
+    position: absolute;
+    inset: 3.35rem .65rem .65rem;
+    z-index: 2;
+    pointer-events: none;
+    background:
+        linear-gradient(var(--c), var(--c)) top left/var(--l) 1px no-repeat,
+        linear-gradient(var(--c), var(--c)) top left/1px var(--l) no-repeat,
+        linear-gradient(var(--c), var(--c)) top right/var(--l) 1px no-repeat,
+        linear-gradient(var(--c), var(--c)) top right/1px var(--l) no-repeat,
+        linear-gradient(var(--c), var(--c)) bottom left/var(--l) 1px no-repeat,
+        linear-gradient(var(--c), var(--c)) bottom left/1px var(--l) no-repeat,
+        linear-gradient(var(--c), var(--c)) bottom right/var(--l) 1px no-repeat,
+        linear-gradient(var(--c), var(--c)) bottom right/1px var(--l) no-repeat
 }
 
-.carimbo>div:first-child {
-    border-left: 0
+.vista::after {
+    content: "";
+    position: absolute;
+    inset: 2.7rem 0 auto;
+    height: 1px;
+    background: rgba(255, 255, 255, .16);
+    z-index: 2
 }
 
-.carimbo dt {
-    font-size: .82rem;
-    color: var(--suave);
-    margin: 0 0 .15rem
+.vista .n,
+.vista .tipo {
+    position: absolute;
+    top: .75rem;
+    z-index: 3;
+    font: 600 .95rem/1 "Barlow Condensed", "Arial Narrow", sans-serif;
+    letter-spacing: .12em;
+    text-transform: uppercase
 }
 
-.carimbo dd {
-    margin: 0;
-    font: 600 1.35rem/1.15 "Barlow Condensed", "Arial Narrow", sans-serif;
+.vista .n {
+    left: 1.2rem;
+    color: var(--suave)
+}
+
+.vista .tipo {
+    right: 1.2rem;
+    color: #6ea0ff
+}
+
+.vista .escudo {
+    position: absolute;
+    inset: 0;
+    z-index: 4
+}
+
+/* espaço reservado enquanto a imagem do projeto não chega */
+.vista .ph {
+    position: absolute;
+    inset: 2.7rem 0 0;
+    display: none;
+    place-content: center;
+    justify-items: center;
+    gap: .7rem;
+    color: rgba(183, 191, 204, .7)
+}
+
+.vista.vazia .ph {
+    display: grid
+}
+
+.vista .ph svg {
+    width: 52px;
+    height: 52px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.4;
+    stroke-linejoin: round
+}
+
+.vista .ph em {
+    font: 600 .9rem/1 "Barlow Condensed", "Arial Narrow", sans-serif;
+    font-style: normal;
+    letter-spacing: .14em;
+    text-transform: uppercase
+}
+
+/* Legenda do card */
+.pj-info {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: .55rem 1.2rem;
+    padding: 1.05rem 1.2rem 1.15rem;
+    border-top: 1px solid rgba(255, 255, 255, .22)
+}
+
+.pj-info h2 {
+    flex: 1 0 100%;
+    text-transform: none;
+    font-weight: 600;
+    font-size: 1.55rem;
     letter-spacing: .01em
 }
 
-.carimbo .tranca {
+.pj-info .meta {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: .5rem
+    gap: .3rem 1rem;
+    margin: 0;
+    color: var(--suave);
+    font-size: .95rem
 }
 
-.carimbo .tranca svg {
-    width: 18px;
-    height: 18px;
+.pj-info .tranca {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    padding-left: 1rem;
+    border-left: 1px solid rgba(255, 255, 255, .25);
+    font: 600 .88rem/1 "Barlow Condensed", "Arial Narrow", sans-serif;
+    letter-spacing: .1em;
+    text-transform: uppercase
+}
+
+.pj-info .tranca svg,
+.pj-info .cta svg {
+    width: 17px;
+    height: 17px;
     flex: none;
-    stroke: #6ea0ff;
     fill: none;
+    stroke: #6ea0ff;
     stroke-width: 2;
     stroke-linecap: round;
     stroke-linejoin: round
 }
 
-.nota-folha {
-    max-width: 62ch;
-    margin: 1.4rem 0 0;
-    color: var(--suave);
-    font-size: .98rem
+.pj-info .cta {
+    flex: 1 0 100%;
+    display: inline-flex;
+    align-items: center;
+    gap: .45rem;
+    font: 700 .98rem/1 "Barlow Condensed", "Arial Narrow", sans-serif;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #6ea0ff;
+    padding: .4rem 0
 }
 
-.pedido {
+.pj-info .cta svg {
+    transition: transform .25s
+}
+
+.pj-info .cta:hover {
+    color: #fff
+}
+
+.pj-info .cta:hover svg {
+    transform: translateX(4px);
+    stroke: #fff
+}
+
+/* Chamada final */
+.pg-proj .pedido {
     display: grid;
-    grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr);
-    gap: 3rem;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 2rem 3rem;
     align-items: center;
-    margin-top: 5rem;
-    padding-top: 2.5rem;
-    border-top: 1px solid rgba(255, 255, 255, .25)
+    margin-top: 3.5rem;
+    padding: 2.2rem 2.4rem;
+    background: rgba(5, 15, 38, .6);
+    border: 1px solid rgba(255, 255, 255, .22);
+    border-left: 4px solid var(--azul2)
 }
 
 .pedido h2 {
-    font-size: clamp(1.5rem, 2.8vw, 2rem);
+    font-size: clamp(1.5rem, 2.8vw, 2.1rem);
     text-transform: none;
     font-weight: 600;
     letter-spacing: -.01em
 }
 
 .pedido p {
-    margin: .8rem 0 0;
+    margin: .7rem 0 0;
     color: #d3dbea;
     max-width: 52ch
 }
@@ -1371,21 +1551,23 @@ footer a:hover {
     }
 
     .abertura,
-    .pedido {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 1.6rem
+    .pg-proj .pedido {
+        grid-template-columns: minmax(0, 1fr)
     }
 
-    .carimbo {
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr)
+    .abertura {
+        gap: 2rem
     }
 
-    .carimbo>div:nth-child(3) {
-        border-left: 0
+    .pj,
+    .pj.larga,
+    .pj.estreita {
+        grid-column: span 6
     }
 
-    .carimbo>div:nth-child(n+3) {
-        border-top: 1px solid rgba(255, 255, 255, .55)
+    .vista {
+        height: auto;
+        aspect-ratio: 4/3
     }
 
     .pedido .acoes {
@@ -1393,46 +1575,27 @@ footer a:hover {
     }
 }
 
-.pg-proj .folha-bloco+.folha-bloco {
-    margin-top: 3.5rem
-}
+@media(max-width:640px) {
 
-.carimbo.c3 {
-    grid-template-columns: 1.6fr 1fr 1fr
-}
-
-@media(max-width:900px) {
-    .carimbo.c3 {
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr)
+    .pj,
+    .pj.larga,
+    .pj.estreita {
+        grid-column: 1/-1
     }
 
-    .carimbo.c3>div:first-child {
-        grid-column: span 2
+    .pg-proj .pedido {
+        padding: 1.6rem 1.3rem
     }
 
-    .carimbo.c3>div:nth-child(2) {
-        border-top: 1px solid rgba(255, 255, 255, .55);
-        border-left: 0
-    }
-
-    .carimbo.c3>div:nth-child(3) {
-        border-left: 1px solid rgba(255, 255, 255, .55)
-    }
-}
-
-@media(max-width:480px) {
-    .carimbo>div {
-        padding: .7rem .8rem .8rem
-    }
-
-    .carimbo dd {
-        font-size: 1.15rem;
-        overflow-wrap: anywhere
+    .etapas li {
+        padding-right: .4rem;
+        font-size: 1.02rem;
+        white-space: normal
     }
 }
 
 @media print {
-    .folha-vista {
+    .vista {
         display: none !important
     }
 }
