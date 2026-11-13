@@ -547,8 +547,137 @@ nav .btn:hover {
     animation-delay: 1s
 }
 
+/* Serviços: entrada animada dos cards ao rolar (estilo tema WordPress) */
 .grade .card {
-    transition: opacity .7s, transform .4s, border-color .3s, background .3s, box-shadow .3s
+    position: relative;
+    overflow: hidden;
+    transition: transform .4s, border-color .3s, background .3s, box-shadow .3s
+}
+
+.grade .card:nth-child(1) { --d: 0s }
+.grade .card:nth-child(2) { --d: .12s }
+.grade .card:nth-child(3) { --d: .24s }
+.grade .card:nth-child(4) { --d: .36s }
+.grade .card:nth-child(5) { --d: .48s }
+
+.grade .card.rev {
+    opacity: 0;
+    transform: none
+}
+
+.grade .card.rev.on {
+    opacity: 1;
+    animation-duration: 1s;
+    animation-delay: var(--d);
+    animation-timing-function: cubic-bezier(.22, 1, .36, 1);
+    animation-fill-mode: backwards
+}
+
+.grade .card:nth-child(1).on { animation-name: entraEsq }
+.grade .card:nth-child(2).on { animation-name: entraZoom }
+.grade .card:nth-child(3).on { animation-name: entraGira }
+.grade .card:nth-child(4).on { animation-name: entraSalta }
+.grade .card:nth-child(5).on { animation-name: entraDir }
+
+@keyframes entraEsq {
+    from { opacity: 0; transform: translateX(-70px) rotate(-5deg) }
+}
+
+@keyframes entraDir {
+    from { opacity: 0; transform: translateX(70px) rotate(5deg) }
+}
+
+@keyframes entraZoom {
+    from { opacity: 0; transform: scale(.55) }
+}
+
+@keyframes entraGira {
+    from { opacity: 0; transform: perspective(800px) rotateX(-75deg) translateY(30px) }
+}
+
+@keyframes entraSalta {
+    0% { opacity: 0; transform: translateY(90px) }
+    60% { opacity: 1; transform: translateY(-16px) }
+    80% { transform: translateY(6px) }
+}
+
+/* ícone com "pop" e textos subindo logo depois do card */
+.grade .card.on svg {
+    animation: pop .8s cubic-bezier(.34, 1.56, .64, 1) backwards;
+    animation-delay: calc(var(--d) + .45s)
+}
+
+.grade .card.on h3,
+.grade .card.on p {
+    animation: sobe .7s cubic-bezier(.22, 1, .36, 1) backwards
+}
+
+.grade .card.on h3 { animation-delay: calc(var(--d) + .6s) }
+.grade .card.on p { animation-delay: calc(var(--d) + .75s) }
+
+@keyframes pop {
+    from { opacity: 0; transform: scale(.2) rotate(-90deg) }
+}
+
+@keyframes sobe {
+    from { opacity: 0; transform: translateY(16px) }
+}
+
+/* barra azul que cresce no topo + brilho que atravessa o card */
+.grade .card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 3px;
+    background: linear-gradient(90deg, var(--azul2), #6ea0ff);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .5s
+}
+
+.grade .card.on::before {
+    transform: scaleX(.22);
+    transition-delay: calc(var(--d) + .5s)
+}
+
+.grade .card.on:hover::before {
+    transform: scaleX(1);
+    transition-delay: 0s
+}
+
+.grade .card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .14), transparent);
+    transform: translateX(-160%) skewX(-20deg);
+    pointer-events: none
+}
+
+.grade .card.on::after {
+    animation: brilho 1.2s ease-out backwards;
+    animation-delay: calc(var(--d) + .8s)
+}
+
+.grade .card.on:hover::after {
+    animation: brilho2 .9s ease-out
+}
+
+@keyframes brilho {
+    from { transform: translateX(-160%) skewX(-20deg) }
+    to { transform: translateX(420%) skewX(-20deg) }
+}
+
+@keyframes brilho2 {
+    from { transform: translateX(-160%) skewX(-20deg) }
+    to { transform: translateX(420%) skewX(-20deg) }
+}
+
+@media(max-width:960px) {
+    .grade .card:nth-child(n) { --d: 0s }
 }
 
 .grade .card.on:hover {
@@ -1077,6 +1206,7 @@ footer a:hover {
 .flut svg {
     width: 32px;
     height: 32px;
+
 }
 
 .rev {
