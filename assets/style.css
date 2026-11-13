@@ -332,6 +332,7 @@ nav a:hover {
 }
 
 .hero-fale {
+    display: none;
     align-self: center
 }
 
@@ -395,6 +396,7 @@ nav a:hover {
     }
 
     #inicio p .d,
+    .hero-cta-fale,
     .hero-cta .vazio,
     .tags {
         display: none
@@ -405,6 +407,7 @@ nav a:hover {
     }
 
     .hero-fale {
+        display: flex;
         width: 100%;
         justify-content: center
     }
