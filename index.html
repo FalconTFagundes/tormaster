@@ -44,8 +44,12 @@
             <div class="wrap hero-g">
                 <div>
                     <h1>Precisão que transforma.<span>Qualidade que entrega.</span></h1>
-                    <p><span class="d">Soluções em usinagem, tornearia e solda com compromisso, qualidade e precisão para atender às necessidades da sua empresa.</span><span class="m">Usinagem, tornearia e solda com precisão.</span></p>
-                    <div class="hero-cta"><a class="btn" href="https://wa.me/5533984391216" target="_blank" rel="noopener">Fale com nossa equipe</a><a class="btn vazio" href="#servicos">Nossos serviços</a></div>
+                    <p><span class="d">Soluções em usinagem, tornearia e solda com compromisso, qualidade e precisão
+                            para atender às necessidades da sua empresa.</span><span class="m">Usinagem, tornearia e
+                            solda com precisão.</span></p>
+                    <div class="hero-cta"><a class="btn" href="https://wa.me/5533984391216" target="_blank"
+                            rel="noopener">Fale com nossa equipe</a><a class="btn vazio" href="#servicos">Nossos
+                            serviços</a></div>
                     <ul class="tags">
                         <li>Usinagem</li>
                         <li>Tornearia</li>
@@ -309,11 +313,13 @@
             </div>
         </div>
     </footer><a class="flut" href="https://wa.me/5533984391216" target="_blank" rel="noopener"
-        aria-label="Conversar pelo WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-whatsapp">
-	<path stroke="none" d="M0 0h24v24H0z" fill="none" />
-	<path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
-	<path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" />
-</svg></a>
+        aria-label="Conversar pelo WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-whatsapp">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
+            <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" />
+        </svg></a>
     <dialog id="visor" aria-label="Visualizador de fotos">
         <div class="palco"><img alt=""></div>
         <div class="barra">
@@ -344,7 +350,7 @@
             const LOTE = 6;                              // fotos verificadas em paralelo
 
             const mosaico = document.getElementById('mosaico');
-           /*  const maisBtn = document.getElementById('galMais'); */
+            /*  const maisBtn = document.getElementById('galMais'); */
             const visor = document.getElementById('visor');
             const visorImg = visor.querySelector('.palco img');
             const contagem = visor.querySelector('.contagem');
@@ -385,7 +391,7 @@
                 b.setAttribute('aria-label', `Ampliar foto ${n}`);
                 b.appendChild(img);
                 b.addEventListener('click', () => abrir(i));
-          /*       if (i >= VISIVEIS) b.hidden = true; */
+                /*       if (i >= VISIVEIS) b.hidden = true; */
                 mosaico.appendChild(b);
             }
 
@@ -407,14 +413,14 @@
                     return;
                 }
 
-               /*  if (fotos.length > VISIVEIS) {
-                    maisBtn.querySelector('span').textContent = `Ver todas as ${fotos.length} fotos`;
-                    maisBtn.hidden = false;
-                    maisBtn.addEventListener('click', () => {
-                        mosaico.querySelectorAll('.foto[hidden]').forEach((f) => (f.hidden = false));
-                        maisBtn.hidden = true;
-                    });
-                } */
+                /*  if (fotos.length > VISIVEIS) {
+                     maisBtn.querySelector('span').textContent = `Ver todas as ${fotos.length} fotos`;
+                     maisBtn.hidden = false;
+                     maisBtn.addEventListener('click', () => {
+                         mosaico.querySelectorAll('.foto[hidden]').forEach((f) => (f.hidden = false));
+                         maisBtn.hidden = true;
+                     });
+                 } */
             }
 
             /* ---------- Visualizador ---------- */
