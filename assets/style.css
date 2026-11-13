@@ -134,6 +134,55 @@ header {
     min-width: 0
 }
 
+.bar nav {
+    order: 1
+}
+
+.bar-acoes {
+    display: flex;
+    align-items: center;
+    gap: .85rem;
+    order: 2
+}
+
+.btn-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .62rem 1.15rem;
+    font: 700 .92rem/1 "Barlow Condensed", "Arial Narrow", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: .07em;
+    white-space: nowrap;
+    text-decoration: none;
+    color: var(--branco);
+    background: var(--azul2);
+    border: 1px solid var(--azul2);
+    border-radius: 3px;
+    transition: background .2s, border-color .2s
+}
+
+.btn-cta svg {
+    width: 15px;
+    height: 15px;
+    flex: none;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform .25s
+}
+
+.btn-cta:hover {
+    background: 0 0;
+    border-color: var(--branco)
+}
+
+.btn-cta:hover svg {
+    transform: translateX(3px)
+}
+
 .logo-img,
 #logoTM {
     display: block;
@@ -170,16 +219,6 @@ nav a {
 }
 
 nav a:hover {
-    color: var(--branco)
-}
-
-nav .btn {
-    color: var(--azul-escuro);
-    padding: .7rem 1.2rem;
-    font-size: .95rem
-}
-
-nav .btn:hover {
     color: var(--branco)
 }
 
@@ -1316,10 +1355,14 @@ footer a:hover {
         border-bottom: 1px solid var(--linha)
     }
 
-    nav li:last-child a {
-        border: 2px solid var(--branco);
-        text-align: center;
-        margin-top: 1rem
+    .btn-cta {
+        padding: .55rem .9rem;
+        font-size: .82rem
+    }
+
+    .btn-cta svg {
+        width: 13px;
+        height: 13px
     }
 }
 
