@@ -221,10 +221,10 @@ nav .btn:hover {
 }
 
 #inicio {
-    min-height: min(100svh, 820px);
+    min-height: min(100svh, 780px);
     display: grid;
     align-items: center;
-    padding: 9rem 0 5rem;
+    padding: 8rem 0 4.5rem;
     background-color: var(--azul-escuro);
     background-image: linear-gradient(rgba(255, 255, 255, .035) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .035) 1px, transparent 1px);
     background-size: 56px 56px;
@@ -235,20 +235,13 @@ nav .btn:hover {
     display: grid;
     grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
     gap: 3.5rem;
-    align-items: center;
-    animation: .9s both fade
-}
-
-@keyframes fade {
-    from {
-        opacity: 0
-    }
+    align-items: center
 }
 
 #inicio h1 {
     font-family: Barlow, "Segoe UI", Roboto, Arial, sans-serif;
     text-transform: none;
-    font-size: clamp(2rem, 3.6vw, 2.9rem);
+    font-size: clamp(2rem, 3.8vw, 3.1rem);
     font-weight: 700;
     line-height: 1.12;
     letter-spacing: -.015em
@@ -261,10 +254,20 @@ nav .btn:hover {
 }
 
 #inicio p {
-    max-width: 48ch;
+    max-width: 46ch;
     font-size: 1.1rem;
     color: #d3dbea;
-    margin: 1.4rem 0 2rem
+    margin: 1.3rem 0 2rem
+}
+
+#inicio p .m {
+    display: none
+}
+
+.hero-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .8rem
 }
 
 .tags {
@@ -299,19 +302,62 @@ nav .btn:hover {
     font-family: Barlow, "Segoe UI", Arial, sans-serif
 }
 
+/* único efeito: o desenho é traçado uma vez ao carregar */
+.desenho .tr {
+    stroke-dasharray: 1;
+    animation: traca 2.2s cubic-bezier(.6, 0, .2, 1) backwards
+}
+
+.desenho .fino,
+.desenho .cota {
+    animation: aparece .8s 1.2s backwards
+}
+
+@keyframes traca {
+    from {
+        stroke-dashoffset: 1
+    }
+}
+
+@keyframes aparece {
+    from {
+        opacity: 0
+    }
+}
+
 @media(max-width:900px) {
     .hero-g {
         grid-template-columns: minmax(0, 1fr);
-        gap: 2.5rem
+        gap: 2rem
     }
 
     #inicio {
-        padding: 7rem 0 3.5rem;
+        padding: 6.5rem 0 3rem;
         min-height: 0
     }
 
+    #inicio p {
+        font-size: 1.05rem;
+        margin: 1rem 0 1.6rem
+    }
+
+    #inicio p .d,
+    .hero-cta .vazio,
+    .tags {
+        display: none
+    }
+
+    #inicio p .m {
+        display: inline
+    }
+
+    .hero-cta .btn {
+        width: 100%;
+        justify-content: center
+    }
+
     .desenho {
-        max-width: 520px
+        max-width: 480px
     }
 }
 
