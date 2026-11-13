@@ -1347,6 +1347,11 @@ footer a:hover {
     transition: transform .6s
 }
 
+.vista.cobre img {
+    padding: 0;
+    object-fit: cover
+}
+
 .pj:hover .vista img {
     transform: scale(1.03)
 }
@@ -1406,35 +1411,29 @@ footer a:hover {
     z-index: 4
 }
 
-/* espaço reservado enquanto a imagem do projeto não chega */
-.vista .ph {
-    position: absolute;
-    inset: 2.7rem 0 0;
-    display: none;
-    place-content: center;
-    justify-items: center;
-    gap: .7rem;
-    color: rgba(183, 191, 204, .7)
+/* Card em destaque: ocupa a linha toda */
+.pj.destaque {
+    grid-column: 1/-1;
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr)
 }
 
-.vista.vazia .ph {
-    display: grid
+.pj.destaque .pj-info {
+    align-content: center;
+    border-top: 0;
+    border-left: 1px solid rgba(255, 255, 255, .22);
+    padding: 2rem 2.2rem
 }
 
-.vista .ph svg {
-    width: 52px;
-    height: 52px;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1.4;
-    stroke-linejoin: round
+.pj.destaque .pj-info h2 {
+    font-size: clamp(1.8rem, 3vw, 2.4rem)
 }
 
-.vista .ph em {
-    font: 600 .9rem/1 "Barlow Condensed", "Arial Narrow", sans-serif;
-    font-style: normal;
-    letter-spacing: .14em;
-    text-transform: uppercase
+.pj-info .txt {
+    flex: 1 0 100%;
+    margin: 0;
+    color: #d3dbea;
+    max-width: 34ch
 }
 
 /* Legenda do card */
@@ -1568,6 +1567,16 @@ footer a:hover {
     .vista {
         height: auto;
         aspect-ratio: 4/3
+    }
+
+    .pj.destaque {
+        grid-template-columns: minmax(0, 1fr)
+    }
+
+    .pj.destaque .pj-info {
+        border-left: 0;
+        border-top: 1px solid rgba(255, 255, 255, .22);
+        padding: 1.05rem 1.2rem 1.15rem
     }
 
     .pedido .acoes {
